@@ -554,10 +554,10 @@ void HardwareSerial::setPins(int8_t rxPin, int8_t txPin, int8_t ctsPin, int8_t r
 
     // uartSetPins() checks if pins are valid for each function and for the SoC 
     if (uartSetPins(_uart, rxPin, txPin, ctsPin, rtsPin)) {
-        _txPin = _txPin >= 0 ? txPin : _txPin;
-        _rxPin = _rxPin >= 0 ? rxPin : _rxPin;
-        _rtsPin = _rtsPin >= 0 ? rtsPin : _rtsPin;
-        _ctsPin = _ctsPin >= 0 ? ctsPin : _ctsPin;
+        _txPin = txPin >= 0 ? txPin : _txPin;
+        _rxPin = rxPin >= 0 ? rxPin : _rxPin;
+        _rtsPin = rtsPin >= 0 ? rtsPin : _rtsPin;
+        _ctsPin = ctsPin >= 0 ? ctsPin : _ctsPin;
     } else {
         log_e("Error when setting Serial port Pins. Invalid Pin.\n");
     }
